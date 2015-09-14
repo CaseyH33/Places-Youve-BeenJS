@@ -44,20 +44,17 @@ $(document).ready(function() {
             $("#show-place h2").text(newPlace.location);
 
             $("ul#trips").text("");
-            newPlace.trips.forEach(function(trip) {
-                $("ul#trips").append("<li><span class='trip'>" + trip.date + "</span></li>");
+            newPlace.trips.forEach(function(trip, index) {
+                $("ul#trips").append("<li><span class='trip trip" + index + "'>" + trip.date + "</span></li>");
+                $(".trip" + index).click(function() {
+                    $("#show-trip").show();
+                    $("#show-trip h3").text(newPlace.trips[index].date);
+                    $(".landmarks").text(newPlace.trips[index].landmarks);
+                    $(".notes").text(newPlace.trips[index].notes);
+
+                });
             });
 
-            $(".trip").last().click(function() {
-                $("#show-trip").show();
-                $("#show-trip h3").text(newPlace.trips[0].date);
-                // console.log(newPlace);
-                // console.log(newPlace.trips);
-                // console.log($(this));
-                $("#show-trip h3").text(newPlace.trips[0].landmarks);
-                $("#show-trip h3").text(newPlace.trips[0].notes);
-
-            });
         });
 
         $("input#new-location").val("");
