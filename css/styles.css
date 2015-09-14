@@ -1,0 +1,25 @@
+#show-place {
+    display: none;
+}
+
+.place {
+    cursor: pointer;
+    color: #0088cc;
+}
+
+.place:hover {
+    text-decoration: underline;
+}
+
+#show-trip {
+    display: none;
+}
+
+.trip {
+    cursor: pointer;
+    color: #0088cc;
+}
+
+.trip:hover {
+    text-decoration: underline;
+}
